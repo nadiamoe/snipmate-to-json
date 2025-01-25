@@ -35,6 +35,7 @@ func run() error {
 
 		if strings.HasPrefix(line, "snippet") {
 			if currentSnippet.Prefix != "" {
+				currentSnippet.Body = strings.TrimSpace(currentSnippet.Body)
 				snippets[currentSnippet.Name] = currentSnippet
 			}
 
