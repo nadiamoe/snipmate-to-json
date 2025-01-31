@@ -51,5 +51,8 @@ func run() error {
 		currentSnippet.Body += strings.TrimPrefix(line, "\t") + "\n"
 	}
 
+	currentSnippet.Body = strings.TrimSpace(currentSnippet.Body)
+	snippets[currentSnippet.Name] = currentSnippet
+
 	return json.NewEncoder(os.Stdout).Encode(snippets)
 }
