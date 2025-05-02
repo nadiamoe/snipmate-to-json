@@ -40,9 +40,16 @@ func run() error {
 			}
 
 			spec := strings.Fields(line)
+
+			prefix := spec[1]
+			name := strings.Trim(strings.Join(spec[2:], " "), "\"")
+			if name == "" {
+				name = prefix
+			}
+
 			currentSnippet = snippet{
-				Prefix: spec[1],
-				Name:   strings.Trim(strings.Join(spec[2:], " "), "\""),
+				Prefix: prefix,
+				Name:   name,
 			}
 
 			continue
